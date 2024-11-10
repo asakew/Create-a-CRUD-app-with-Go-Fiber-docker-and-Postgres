@@ -20,7 +20,7 @@ func main() {
 
 	// Connect to database
 	database.ConnectFDB()
-	
+
 	// Serve static files
 	app.Static("/assets", "./web/assets")
 
@@ -31,6 +31,7 @@ func main() {
 
 	// Routes
 	routers.HTMLRendering(app)
+	routers.FactsRoutes(app)
 
 	log.Fatal(app.Listen(":3003"))
 }
