@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1>Edit a fact</h1>
-    <form action="/fact/{{.Fact.ID}}/edit" method="post">
+    <form action="/fact/{{.Fact.ID}}/edit" method="post" data-factid="{{ .Fact.ID }}">
         <div class="form-group">
             <label for="text">Text</label>
             <input type="text" class="form-control" id="text" name="text" aria-describedby="textHelp" placeholder="Enter the text of the fact" value="{{.Fact.Text}}">
@@ -24,6 +24,9 @@
         <button type="submit" class="btn btn-primary">Edit</button>
     </form>
 </div>
+
+
+
 
 </body>
 </html>

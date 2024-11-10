@@ -4,9 +4,10 @@ import "gorm.io/gorm"
 
 type Fact struct {
 	gorm.Model
-	ID   uint   `gorm:"primaryKey" json:"id"`
-	Text string `json:"text"`
-	Teg  string `json:"teg"`
+	ID      uint   `gorm:"primaryKey" json:"id"`
+	Title   string `json:"text"`
+	Content string `json:"content"`
+	Teg     string `json:"teg"`
 }
 
 func (Fact) TableName() string {

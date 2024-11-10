@@ -22,6 +22,16 @@ func CreateFact(c *fiber.Ctx) error {
 	return c.Redirect("/")
 }
 
+func ListAllFacts(c *fiber.Ctx) error {
+	var facts []models.Fact
+	if err := database.FactDB.Find(&facts).Error; err != nil {
+		return c.Status(fiber.ErrNotFound.Code).JSON("Not found")
+	}
+	return c.Render("allFacts", fiber.Map{
+		"facts": facts,
+	})
+}
+
 func ListFacts(c *fiber.Ctx) error {
 	var facts []models.Fact
 	database.FactDB.Find(&facts)
