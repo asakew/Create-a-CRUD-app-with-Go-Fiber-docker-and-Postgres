@@ -10,4 +10,9 @@ func HTMLRendering(app *fiber.App) {
 			"Greeting":    "Hello, world!",
 		})
 	})
+
+	app.Get("/createFact", func(c *fiber.Ctx) error {
+		return c.Render("createFact", nil)
+	})
+
 }
