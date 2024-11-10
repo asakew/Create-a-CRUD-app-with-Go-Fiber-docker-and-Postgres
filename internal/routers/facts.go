@@ -6,7 +6,9 @@ import (
 )
 
 func FactsRoutes(app *fiber.App) {
-	app.Get("/", handlers.ListAllFacts)
+	//app.Get("/", handlers.ListAllFacts)
+
+	app.Get("/facts", handlers.ListAllFacts)
 
 	app.Get("/fact", handlers.NewFactView)
 
@@ -17,4 +19,5 @@ func FactsRoutes(app *fiber.App) {
 
 	// Add new route to show single Fact, given `:id`
 	app.Get("/fact/:id", handlers.ShowFact)
+
 }

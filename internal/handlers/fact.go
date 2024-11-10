@@ -8,7 +8,6 @@ import (
 
 func CreateFact(c *fiber.Ctx) error {
 	fact := new(models.Fact)
-	// Parse request body
 	if err := c.BodyParser(fact); err != nil {
 		return NewFactView(c)
 	}
