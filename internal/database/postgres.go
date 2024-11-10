@@ -18,6 +18,7 @@ func ConnectFDB() {
 
 	Migrate()
 
+	println("Connected to database: facts_db")
 }
 
 func Migrate() {

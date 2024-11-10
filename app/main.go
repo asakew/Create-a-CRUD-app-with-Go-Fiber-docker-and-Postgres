@@ -7,6 +7,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/gofiber/template/html/v2"
 	"goFiber/internal/database"
+	"goFiber/internal/handlers"
 	"goFiber/internal/routers"
 	"log"
 )
@@ -32,6 +33,9 @@ func main() {
 	// Routes
 	routers.HTMLRendering(app)
 	routers.FactsRoutes(app)
+
+	// Set up 404 page
+	app.Use(handlers.NotFound)
 
 	log.Fatal(app.Listen(":3003"))
 }

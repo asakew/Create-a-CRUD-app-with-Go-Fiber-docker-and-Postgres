@@ -53,13 +53,24 @@ func ShowFactView(c *fiber.Ctx) error {
 	})
 }
 
-func EditFactView(c *fiber.Ctx) error {
+func EditFact(c *fiber.Ctx) error {
+	fact := models.Fact{}
 	id := c.Params("id")
-	var fact models.Fact
-	database.FactDB.Find(&fact, id)
-	return c.Render("edit-fact", fiber.Map{
-		"Fact": fact,
+
+	result := database.FactDB.Where("id = ?", id).First(&fact)
+	if result.Error != nil {
+		return NotFound(c)
+	}
+
+	return c.Render("edit", fiber.Map{
+		"Title":    "Edit Fact",
+		"Subtitle": "Edit your interesting fact",
+		"Fact":     fact,
 	})
+}
+
+func NotFound(c *fiber.Ctx) error {
+	return c.Status(fiber.StatusNotFound).SendFile("./web/templates/404.html")
 }
 
 func UpdateFact(c *fiber.Ctx) error {
@@ -67,7 +78,7 @@ func UpdateFact(c *fiber.Ctx) error {
 	var fact models.Fact
 	database.FactDB.Where("id = ?", id).First(&fact)
 	if err := c.BodyParser(&fact); err != nil {
-		return EditFactView(c)
+		return EditFact(c)
 	}
 	database.FactDB.Save(&fact)
 	return ShowFactView(c)
