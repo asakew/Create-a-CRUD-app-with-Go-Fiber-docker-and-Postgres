@@ -6,6 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/gofiber/template/html/v2"
+	"goFiber/internal/database"
 	"goFiber/internal/routers"
 	"log"
 )
@@ -17,6 +18,9 @@ func main() {
 		Views: engine, // Load templates
 	})
 
+	// Connect to database
+	database.ConnectFDB()
+	
 	// Serve static files
 	app.Static("/assets", "./web/assets")
 
