@@ -19,7 +19,7 @@ func CreateFact(c *fiber.Ctx) error {
 		return NewFactView(c)
 	}
 
-	return ListFacts(c)
+	return c.Redirect("/")
 }
 
 func ListFacts(c *fiber.Ctx) error {
