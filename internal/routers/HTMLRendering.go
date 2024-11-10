@@ -11,8 +11,12 @@ func HTMLRendering(app *fiber.App) {
 		})
 	})
 
+	// Facts routes
 	app.Get("/createFact", func(c *fiber.Ctx) error {
 		return c.Render("createFact", nil)
+	})
+	app.Get("/editFact", func(c *fiber.Ctx) error {
+		return c.Render("editFact", nil)
 	})
 
 }

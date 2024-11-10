@@ -2,27 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>createFact</title>
+    <title>editFact</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
 
 <div class="container">
-    <h1>Create a new fact</h1>
-    <form action="/fact" method="post">
+    <h1>Edit a fact</h1>
+    <form action="/fact/{{.Fact.ID}}/edit" method="post">
         <div class="form-group">
             <label for="text">Text</label>
-            <input type="text" class="form-control" id="text" name="text" aria-describedby="textHelp" placeholder="Enter the text of the fact">
+            <input type="text" class="form-control" id="text" name="text" aria-describedby="textHelp" placeholder="Enter the text of the fact" value="{{.Fact.Text}}">
             <small id="textHelp" class="form-text text-muted">Enter the text of the fact</small>
         </div>
-
         <div class="form-group">
             <label for="teg">Tag</label>
-            <input type="text" class="form-control" id="teg" name="teg" aria-describedby="tegHelp" placeholder="Enter the tag of the fact">
+            <input type="text" class="form-control" id="teg" name="teg" aria-describedby="tegHelp" placeholder="Enter the tag of the fact" value="{{.Fact.Teg}}">
             <small id="tegHelp" class="form-text text-muted">Enter the tag of the fact</small>
         </div>
-
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
     </form>
 </div>
 
