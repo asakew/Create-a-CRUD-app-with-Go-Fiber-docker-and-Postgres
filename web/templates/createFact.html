@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
@@ -12,7 +13,15 @@
         <div class="form-group">
             <label for="text">Text</label>
             <input type="text" class="form-control" id="text" name="text" aria-describedby="textHelp" placeholder="Enter the text of the fact">
+            <small id="textHelp" class="form-text text-muted">Enter the text of the fact</small>
         </div>
+
+        <div class="form-group">
+            <label for="teg">Tag</label>
+            <input type="text" class="form-control" id="teg" name="teg" aria-describedby="tegHelp" placeholder="Enter the tag of the fact">
+            <small id="tegHelp" class="form-text text-muted">Enter the tag of the fact</small>
+        </div>
+
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
 </div>
